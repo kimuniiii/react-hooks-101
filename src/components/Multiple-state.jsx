@@ -7,20 +7,22 @@ import React, { useState } from 'react';
 const MultipleState = (props) => {
 
   // 初期値を受け取り2つの要素を持つ配列を返す
-  const [name, setName] = useState(props.name);
-  const [price,setPrice] = useState(props.price);
+  const [state, setState] = useState(props);
+  console.log(state);
+
+  // オブジェクトの分割代入
+  const { name , price } = state;
 
   const increment = () => {
-    setPrice(price + 1);
+    setState({...state, price : price + 1});
   }
 
   const decrement = () => {
-    setPrice(price - 1);
+    setState({...state , price : price - 1})
   }
 
   const reset = () => {
-    setPrice(props.price);
-    setName(props.name);
+    setState(props)
   }
 
   return (
@@ -29,7 +31,7 @@ const MultipleState = (props) => {
     <button onClick={increment}>+1</button>
     <button onClick={decrement}>-1</button>
     <button onClick={reset}>reset</button>
-    <input value={name} onChange={e => setName(e.target.value)}/>
+    <input value={name} onChange={e => setState({...state, name : e.target.value})}/>
   </React.Fragment>
   )
 }
