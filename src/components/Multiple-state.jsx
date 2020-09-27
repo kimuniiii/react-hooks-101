@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-//! ===================
-//! 複数の状態を管理する
-//! ===================
+//! ==========
+//! useEffect
+//! ==========
 
 const MultipleState = (props) => {
 
@@ -12,6 +12,24 @@ const MultipleState = (props) => {
 
   // オブジェクトの分割代入
   const { name , price } = state;
+
+  useEffect(() => {
+    console.log('componentDidMount or componentDidUpdate');
+  })
+
+  //! レンダリングごとにuseEffectが実行させるのを防ぐ方法
+
+  // 第二引数に空の配列を渡す
+  // マウント時のみ実行する
+  useEffect(() => {
+    console.log('componentDidMount');
+  },[]);
+
+  // 第二引数に値の配列を渡す
+  // nameが更新されたときのみ実行する
+  useEffect(() => {
+    console.log('name');
+  },[name]);
 
   const increment = () => {
     setState({...state, price : price + 1});
