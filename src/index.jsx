@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MultipleState from './components/Multiple-state';
+import App from './components/App';
 
-ReactDOM.render(<MultipleState />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
