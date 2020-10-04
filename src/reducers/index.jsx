@@ -56,6 +56,14 @@ state = [
 ]
 */
 
+/**
+ * @概要 Reducer関数
+ * @説明 古いステートとアクションを受け取って新しいステートを返す純粋関数
+ * @param {Array} [state=[]]
+ * @param {Object} action
+ * @returns {Array} new State
+ */
+
 const reducer = (state = [], action) => {
   switch(action.type) {
       case 'CREATE_EVENT':
