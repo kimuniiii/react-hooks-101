@@ -11,7 +11,7 @@ import reducer from '../reducers';
  * @概要 Appコンポーネント
  * @説明 階層構造の最上位に位置するコンポーネント
  * @params
- * @returns EventsFormコンポーネントの呼び出し + Eventsコンポーネントの呼び出し
+ * @return 子コンポーネント
  */
 
 const App = () => {

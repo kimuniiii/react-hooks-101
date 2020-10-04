@@ -1,11 +1,14 @@
 // 外部ライブラリからのimport
 import React,{ useState } from 'react';
 
+// 画面固有のimport
+import { CREATE_EVENT, DELETE_ALL_EVENT } from '../actions';
+
 /**
  * @概要 EventFormコンポーネント
  * @説明
- * @param {*} { state, dispatch }
- * @returns イベント作成フォーム
+ * @param { state, dispatch } useReducerの返り値
+ * @return イベント作成フォーム
  */
 const EventForm = ({ state, dispatch }) => {
 
@@ -17,13 +20,13 @@ const EventForm = ({ state, dispatch }) => {
    * @概要 イベントハンドラ
    * @説明 イベント作成ボタンをクリックしたら発火される関数
    * @param {*} e イベントオブジェクト
-   * @returns dispatch関数
+   * @return dispatch関数
    */
 
   const addEvent = (e) => {
     e.preventDefault()
     return dispatch({
-      type:'CREATE_EVENT',
+      type: CREATE_EVENT,
       title,
       body
     })
@@ -40,7 +43,7 @@ const EventForm = ({ state, dispatch }) => {
     e.preventDefault();
     const result = window.confirm('全てのイベントを本当に削除しても良いですか？')
     if (result) {
-      return dispatch({ type: 'DELETE_ALL_EVENT' })
+      return dispatch({ type: DELETE_ALL_EVENT })
     }
   }
 

@@ -1,6 +1,8 @@
 // 外部ライブラリからのimport
 import React from 'react';
 
+// 画面固有のimport
+import { DELETE_EVENT } from '../actions'
 
 /**
  * @概要 Eventコンポーネント
@@ -21,7 +23,7 @@ const Event = ({ event, dispatch }) => {
       const handleClickDeleteButton = () => {
         const result = window.confirm(`イベントを(id=${id})本当に削除しても良いですか？`)
         if (result) {
-          return dispatch({ type : 'DELETE_EVENT', id })
+          return dispatch({ type : DELETE_EVENT, id })
         }
       }
 
