@@ -7,8 +7,8 @@ import Event from './Event';
 /**
  * @概要 Eventsコンポーネント
  * @説明
- * @param {*} { state, dispatch }
- * @returns イベント一覧表
+ * @param {Object} (state,dispatch)
+ * @return イベント一覧表
  */
 
 const Events = ({ state, dispatch }) => {

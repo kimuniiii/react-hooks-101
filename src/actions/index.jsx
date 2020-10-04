@@ -1,0 +1,4 @@
+// 定数名は「UPPER_SNAKE_CASE」で命名する
+export const CREATE_EVENT = 'CREATE_EVENT'
+export const DELETE_EVENT = 'DELETE_EVENT'
+export const DELETE_ALL_EVENT = 'DELETE_ALL_EVENT'
