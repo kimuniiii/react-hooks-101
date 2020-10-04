@@ -1,14 +1,27 @@
-// 外部モジュール
+// 外部ライブラリからのimport
 import React from 'react';
 
-const Event = ({ dispatch, event }) => {
-      console.log(event);
+
+/**
+ * @概要 Eventコンポーネント
+ * @説明
+ * @param {*} { event, dispatch }
+ * @returns ID・タイトル・ボディー・削除ボタン
+ */
+
+const Event = ({ event, dispatch }) => {
+
       const id = event.id
+
+      /**
+       * @概要 イベントハンドラ
+       * @説明 イベント一覧の削除ボタンをクリックしたら発火
+       * @returns dispatch関数
+       */
       const handleClickDeleteButton = () => {
-        const result = window.alert(`イベントを(id=${id})本当に削除しても良いですか？`)
-        console.log(result);
+        const result = window.confirm(`イベントを(id=${id})本当に削除しても良いですか？`)
         if (result) {
-          dispatch({ type : 'DELETE_EVENT', id })
+          return dispatch({ type : 'DELETE_EVENT', id })
         }
       }
 
