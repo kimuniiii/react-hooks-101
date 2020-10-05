@@ -1,19 +1,26 @@
 // 外部ライブラリからのimport
-import React from 'react';
+import React, { useContext } from 'react';
+
+// 共通実装のimport
+import AppContext from '../contexts/AppContext';
 
 // 画面固有のimport
 import Event from './Event';
 
 /**
- * @概要 Eventsコンポーネント
- * @説明
- * @param {Object} (state,dispatch)
- * @return イベント一覧表
+ * Eventsコンポーネント
+ *
+ * @param {Object} props
+ * @return JSX
  */
 
 const Events = ({ state, dispatch }) => {
+
+  const value = useContext(AppContext);
+
   return (
     <>
+      <div>{value}</div>
       <h4>イベント一覧</h4>
         <table className='table table-hover'>
           <thead>

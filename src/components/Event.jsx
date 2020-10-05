@@ -5,10 +5,10 @@ import React from 'react';
 import { DELETE_EVENT } from '../actions'
 
 /**
- * @概要 Eventコンポーネント
- * @説明
- * @param {*} { event, dispatch }
- * @returns ID・タイトル・ボディー・削除ボタン
+ * Eventコンポーネント
+ *
+ * @param {Object} props
+ * @return JSX
  */
 
 const Event = ({ event, dispatch }) => {
@@ -16,15 +16,13 @@ const Event = ({ event, dispatch }) => {
       const id = event.id
 
       /**
-       * @概要 イベントハンドラ
-       * @説明 イベント一覧の削除ボタンをクリックしたら発火
-       * @returns dispatch関数
+       * イベントハンドラ
+       * イベント一覧の削除ボタンをクリックしたら発火
        */
+
       const handleClickDeleteButton = () => {
         const result = window.confirm(`イベントを(id=${id})本当に削除しても良いですか？`)
-        if (result) {
-          return dispatch({ type : DELETE_EVENT, id })
-        }
+        if (result) dispatch({ type : DELETE_EVENT, id })
       }
 
       return (

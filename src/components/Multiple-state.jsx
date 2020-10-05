@@ -44,13 +44,13 @@ const MultipleState = (props) => {
   }
 
   return (
-  <React.Fragment>
+  <>
     <p>現在の{name}は{price}円です</p>
     <button onClick={increment}>+1</button>
     <button onClick={decrement}>-1</button>
     <button onClick={reset}>reset</button>
     <input value={name} onChange={e => setState({...state, name : e.target.value})}/>
-  </React.Fragment>
+  </>
   )
 }
 
