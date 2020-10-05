@@ -1,5 +1,8 @@
 // 外部ライブラリからのimport
-import React from 'react';
+import React, { useContext } from 'react';
+
+// 共通実装のimport
+import AppContext from '../contexts/AppContext';
 
 // 画面固有のimport
 import { DELETE_EVENT } from '../actions'
@@ -7,13 +10,16 @@ import { DELETE_EVENT } from '../actions'
 /**
  * Eventコンポーネント
  *
- * @param {Object} props
  * @return JSX
  */
 
-const Event = ({ event, dispatch }) => {
+const Event = ({ event }) => {
+
+      const { dispatch } = useContext(AppContext);
 
       const id = event.id
+      const title = event.title
+      const body = event.body
 
       /**
        * イベントハンドラ
@@ -28,8 +34,8 @@ const Event = ({ event, dispatch }) => {
       return (
       <tr>
         <td>{id}</td>
-        <td>{event.title}</td>
-        <td>{event.body}</td>
+        <td>{title}</td>
+        <td>{body}</td>
         <td>
           <button
           type='button'

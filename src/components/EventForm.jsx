@@ -1,21 +1,23 @@
 // 外部ライブラリからのimport
-import React,{ useState } from 'react';
+import React,{ useState, useContext } from 'react';
+
+// 共通実装のimport
+import AppContext from '../contexts/AppContext';
 
 // 画面固有のimport
 import { CREATE_EVENT, DELETE_ALL_EVENT } from '../actions';
 
 /**
- * @概要 EventFormコンポーネント
- * @説明
- * @param {Object} props
+ * EventFormコンポーネント
+ *
  * @return JSX
  */
 
-const EventForm = ({ state, dispatch }) => {
+const EventForm = () => {
 
-  // useStateを用いた状態管理
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const { state, dispatch } = useContext(AppContext);
+  const [ title, setTitle ] = useState('');
+  const [ body, setBody ] = useState('');
 
   const unCreatable = title === '' || body === ''
 
