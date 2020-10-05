@@ -2,30 +2,33 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useReducer } from 'react';
 
+// 共通実装のimport
+import AppContext from '../contexts/AppContext'
+
 // 画面固有のimport
 import EventForm from './EventForm';
 import Events from './Events';
 import reducer from '../reducers';
 
 /**
- * @概要 Appコンポーネント
- * @説明 階層構造の最上位に位置するコンポーネント
- * @params
+ * Appコンポーネント
+ * 階層構造の最上位に位置するコンポーネント
+ * @param
  * @return 子コンポーネント
  */
 
 const App = () => {
 
-  //? useReducerを用いた状態管理
-  // stateは個々に独立している
-  // 同じstateを共有する必要がある
+  // useReducerを用いた状態管理
   const [state, dispatch] = useReducer(reducer,[]);
 
   return (
+    <AppContext.Provider value={'Hello'}>
     <div className='container-fluid'>
       <EventForm state={state} dispatch={dispatch} />
       <Events state={state} dispatch={dispatch} />
     </div>
+    </AppContext.Provider>
   )
 }
 
