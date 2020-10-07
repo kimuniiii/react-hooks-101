@@ -8,7 +8,7 @@ import AppContext from '../contexts/AppContext'
 // 画面固有のimport
 import EventForm from './EventForm';
 import Events from './Events';
-import reducer from '../reducers';
+import events from '../reducers';
 
 /**
  * Appコンポーネント
@@ -18,8 +18,8 @@ import reducer from '../reducers';
  */
 
 const App = () => {
-  const initialState = { events : [] }
-  const [state, dispatch] = useReducer(reducer,initialState);
+  const initialState = { events: [], operationLogs: [] }
+  const [state, dispatch] = useReducer(events,initialState);
 
   return (
     <AppContext.Provider value={{state, dispatch}}>
