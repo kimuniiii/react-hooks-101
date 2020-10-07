@@ -9,7 +9,7 @@ import Event from './Event';
 
 /**
  * Eventsコンポーネント
- *
+ * イベント一覧表を返すコンポーネント
  * @return JSX
  */
 
