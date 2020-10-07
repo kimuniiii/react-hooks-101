@@ -5,11 +5,12 @@ import React,{ useState, useContext } from 'react';
 import AppContext from '../contexts/AppContext';
 
 // 画面固有のimport
-import { CREATE_EVENT, DELETE_ALL_EVENT } from '../actions';
+import { CREATE_EVENT, DELETE_ALL_EVENT, ADD_OPERATION_LOG, DELETE_ALL__OPERATION_LOGS } from '../actions';
+import { timeCurrentIso } from '../utils';
 
 /**
  * EventFormコンポーネント
- *
+ * イベント作成フォームを返すコンポーネント
  * @return JSX
  */
 
@@ -54,6 +55,12 @@ const EventForm = () => {
       title,
       body
     })
+
+    dispatch({
+      type: ADD_OPERATION_LOG,
+      description: 'イベントを作成しました',
+      operatedAt: timeCurrentIso
+    })
   }
 
   /**
@@ -65,8 +72,14 @@ const EventForm = () => {
   const deleteAllEvents = (e) => {
     e.preventDefault();
     const result = window.confirm('全てのイベントを本当に削除しても良いですか？')
-    if (result) dispatch({ type: DELETE_ALL_EVENT })
-  }
+    if (result) {
+      dispatch({ type: DELETE_ALL_EVENT });
+      dispatch({
+        type: ADD_OPERATION_LOG,
+        description: '全てのイベントを削除しました',
+        operatedAt: timeCurrentIso
+      })
+  }}
 
   return (
   <>
