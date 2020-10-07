@@ -13,14 +13,13 @@ import reducer from '../reducers';
 /**
  * Appコンポーネント
  * 階層構造の最上位に位置するコンポーネント
- * @param
+ *
  * @return 子コンポーネント
  */
 
 const App = () => {
-
-  // useReducerを用いた状態管理
-  const [state, dispatch] = useReducer(reducer,[]);
+  const initialState = { events : [] }
+  const [state, dispatch] = useReducer(reducer,initialState);
 
   return (
     <AppContext.Provider value={{state, dispatch}}>
