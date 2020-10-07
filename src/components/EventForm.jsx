@@ -44,7 +44,7 @@ const EventForm = () => {
   /**
    * イベントハンドラ
    * イベント作成ボタンをクリックしたら発火される関数
-   * @param { Object } e イベントオブジェクト
+   * @param {Object} e イベントオブジェクト
    */
 
   const addEvent = (e) => {
@@ -59,7 +59,7 @@ const EventForm = () => {
   /**
    * イベントハンドラ
    * 全てのイベントを削除するボタンをクリックしたら発火
-   * @param イベントオブジェクト
+   * @param {Object} e イベントオブジェクト
    */
 
   const deleteAllEvents = (e) => {
