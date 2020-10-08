@@ -10,7 +10,7 @@ import OperationLog from './OperationLog';
 
 /**
  * OperationLogsコンポーネント
- * 操作ログ一覧表のｈひな型を返すコンポーネント
+ * 操作ログ一覧表のひな型を返すコンポーネント
  * @return JSX
  */
 
