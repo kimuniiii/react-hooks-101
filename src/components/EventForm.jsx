@@ -59,7 +59,7 @@ const EventForm = () => {
     dispatch({
       type: ADD_OPERATION_LOG,
       description: 'イベントを作成しました',
-      operatedAt: timeCurrentIso
+      operatedAt: timeCurrentIso()
     })
   }
 
@@ -77,7 +77,7 @@ const EventForm = () => {
       dispatch({
         type: ADD_OPERATION_LOG,
         description: '全てのイベントを削除しました',
-        operatedAt: timeCurrentIso
+        operatedAt: timeCurrentIso()
       })
   }}
 

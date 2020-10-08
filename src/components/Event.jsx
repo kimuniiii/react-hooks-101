@@ -5,11 +5,12 @@ import React, { useContext } from 'react';
 import AppContext from '../contexts/AppContext';
 
 // 画面固有のimport
-import { DELETE_EVENT } from '../actions'
+import { DELETE_EVENT, ADD_OPERATION_LOG } from '../actions'
+import { timeCurrentIso } from '../utils';
 
 /**
  * Eventコンポーネント
- *
+ * イベント一覧の具体的な内容を返すコンポーネント
  * @return JSX
  */
 
@@ -28,7 +29,16 @@ const Event = ({ event }) => {
 
       const handleClickDeleteButton = () => {
         const result = window.confirm(`イベントを(id=${id})本当に削除しても良いですか？`)
-        if (result) dispatch({ type : DELETE_EVENT, id })
+        if (result) {
+          dispatch({ type : DELETE_EVENT, id })
+
+          dispatch({
+            type: ADD_OPERATION_LOG,
+            description: `イベント(id=${id})を削除しました`,
+            operatedAt: timeCurrentIso(),
+          })
+
+        }
       }
 
       return (
