@@ -18,6 +18,7 @@ import events from '../reducers';
  */
 
 const App = () => {
+
   const initialState = { events: [], operationLogs: [] }
   const [state, dispatch] = useReducer(events,initialState);
 
