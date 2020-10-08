@@ -1,6 +1,6 @@
 // 外部ライブラリからのimport
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 // 共通実装のimport
 import AppContext from '../contexts/AppContext'
@@ -20,8 +20,14 @@ import OperationLogs from './OperationLogs';
 
 const App = () => {
 
-  const initialState = { events: [], operationLogs: [] }
+  const KEY_STORAGE = 'appWithRedux';
+  const appState = localStorage.getItem(KEY_STORAGE);
+  const initialState = appState ? JSON.parse(appState) : { events: [], operationLogs: [] }
   const [state, dispatch] = useReducer(events,initialState);
+
+  useEffect(() => {
+    localStorage.setItem(KEY_STORAGE, JSON.stringify(state));
+  },[state])
 
   return (
     <AppContext.Provider value={{state, dispatch}}>
